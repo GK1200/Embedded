@@ -133,54 +133,6 @@ Note: Even though the LCD is non-RGB, this library is still required.
 */
 
 
-#include <Wire.h>
-
-
-// Bind default Wire to I2C-1
-TwoWire Wire(1);
-
-
-#include "rgb_lcd.h"
-
-
-rgb_lcd lcd;
-
-
-void setup()
-{
-    Serial.begin(115200);
-
-
-    // Start I2C communication
-    Wire.begin();
-
-
-    // Initialize LCD
-    lcd.begin(16, 2);
-
-
-    lcd.setCursor(0, 0);
-    lcd.print("ARIES Board");
-    lcd.setCursor(0, 1);
-    lcd.print("Grove LCD OK");
-
-
-    delay(2000);
-}
-
-
-void loop()
-{
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("Hello from ARIES");
-    lcd.setCursor(0, 1);
-    lcd.print("Time: ");
-    lcd.print(millis() / 1000);
-
-
-    delay(2000);
-}
 8. Example Code (Low-level / Register-based – RGB Supported)
 
 This project also includes a low-level implementation of the Grove 16x2 RGB LCD without using the rgb_lcd library. It directly controls:
